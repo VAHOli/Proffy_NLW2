@@ -6,13 +6,14 @@
     <title>Proffy| Sua plataforma de estudos online</title>
         
     <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/partials/page-give-classes.css">
     <link rel="stylesheet" href="/styles/partials/header.css">
     <link rel="stylesheet" href="/styles/partials/forms.css">
+    <link rel="stylesheet" href="/styles/partials/page-give-classes.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
 
-
 </head>
+
 <body id="page-give-classes">
    
     <div id="container"> 
@@ -76,7 +77,7 @@
                 </fieldset>
                 <fieldset id="schedule-items">
                     <legend>Horários disponíveis
-                        <button id="add-time">+ Novo Horário</button>
+                        <button id="add-time" type="button">+ Novo Horário</button>
                     </legend>
                     <div class="schedule-item">
                         <div class="select-block">
@@ -92,41 +93,15 @@
                                 <option value="7">Domingo</option>
                             </select>
                         </div>
-                        <div class="textarea-block">
+                        <div class="input-block">
                             <label for="time_from">De</label>
-                            <textarea type="time" name="time_from[]" required></textarea>
+                            <input type="time" name="time_from[]" required></input>
                         </div>
-                        <div class="textarea-block">
+                        <div class="input-block">
                             <label for="time_to">Até</label>
-                            <textarea type="time" name="time_to[]" required></textarea>
+                            <input type="time" name="time_to[]" required></input>
                         </div>
-                    </div>
-                    <div class="schedule-item">
-                        <div class="select-block">
-                            <label for="weekday"> Dia da semana</label>
-                            <select name="weekday[]" required >
-                                <option value="">Selecione uma opção</option>
-                                <option value="1">Segunda-feira</option>
-                                <option value="2">Terça-feira</option>
-                                <option value="3">Quarta-feira</option>
-                                <option value="4">Quinta-feira</option>
-                                <option value="5">Sexta-feira</option>
-                                <option value="6">Sábado</option>
-                                <option value="7">Domingo</option>
-                            </select>
-                        </div>
-                        <div class="textarea-block">
-                            <label for="time_from">De</label>
-                            <textarea type="time" name="time_from[]" required></textarea>
-                        </div>
-                        <div class="textarea-block">
-                            <label for="time_to">Até</label>
-                            <textarea type="time" name="time_to[]" required></textarea>
-                        </div>
-                    </div>
-                   
-
-
+                    </div>                 
                 </fieldset>
             </form>
             <footer>
@@ -139,7 +114,8 @@
             </footer>
        </main>
     </div>
-   
+
+    <script src="/scripts/addField.js" defer></script>
+    
 </body>
 </html>
-
