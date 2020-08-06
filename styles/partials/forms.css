@@ -1,0 +1,86 @@
+
+.input-block label,
+.select-block label{
+    font-size: 1.4rem;
+    color: var(--color-text-complement);
+} 
+
+.textarea-block label
+{
+    font-size: 1.4rem;
+    color: var(--color-text-complement);
+}
+
+.input-block input{
+        width: 100%;
+        height: 5.6rem;
+        margin-top: 0.8rem;
+        border-radius: 0.8rem;
+        background: var(--color-input-background);
+        border: 1px solid var(--color-line-in-white);
+        outline: 0;
+        padding: 0 1.6rem;
+        font: 1.6rem Archivo;
+}
+
+.select-block select {
+    
+        width: 100%;
+        height: 5.6rem;
+        margin-top: 0.8rem;
+        border-radius: 0.8rem;
+        background: var(--color-input-background);
+        border: 1px solid var(--color-line-in-white);
+        outline: 0;
+        padding: 0 1.6rem;
+        font: 1.6rem Archivo;
+    
+}
+.textarea-block textarea {
+    width: 100%;
+    height: 5.6rem;
+    margin-top: 0.8rem;
+    border-radius: 0.8rem;
+    background: var(--color-input-background);
+    border: 1px solid var(--color-line-in-white);
+    outline: 0;
+    padding: 0 1.6rem;
+    font: 1.6rem Archivo;
+}
+
+ 
+.textarea-block textarea {
+    padding: 1.2rem 1.6rem;
+    resize: vertical;
+    position: relative;
+}
+
+.input-block input {
+    position: relative;
+ }
+ .input-block:focus-within::after{
+    content: "";
+    width: calc(100% - 3.2rem);
+    height: 4px;
+    background: var(--color-secondary);
+
+    position: absolute;
+    left: 1.6rem;
+    bottom: 0px;
+}
+ 
+ .select-block select {
+    position: relative;
+ }
+.select-block:focus-within::after{
+    content: "";
+    width: calc(94.5% - 3.2rem);
+    height: 4px;
+    background: var(--color-secondary);
+
+    position: absolute;
+    left: 1.6rem;
+    bottom: 0px;
+}
+
+ 
