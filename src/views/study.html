@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt_br">
 <head>
@@ -26,116 +25,65 @@
             </div>
             <div class="header-content">
                <strong>Esses são os proffys disponíveis</strong>
-               <form id="search-teachers">
+               <form id="search-teachers"> 
                     <div class="select-block">
                         <label for="subject">Matéria</label>
                         <select name="subject" id="subject">
                             <option value="" disabled="" hidden="">Selecione uma opção</option>
-                            <option value="1">Artes</option>
-                            <option value="2">Biologia</option>
-                            <option value="3">Ciências</option>
-                            <option value="4">Educação física</option>
-                            <option value="5">Física</option>
-                            <option value="6">Geografia</option>
-                            <option value="7">História</option>
-                            <option value="8">Matemática</option>
-                            <option value="9">Português</option>
-                            <option value="10">Química</option>
+
+                            {%for subject in subjects%}
+                                <option value="{{loop.index}}" {{"selected" if filters.subject== loop.index }}>{{subject}}</option>
+                            {%endfor%}
+
                         </select>
                     </div>
                     <div class="select-block">
                         <label for="weekday">Dia da semana</label>
                         <select name="weekday" id="weekday">
                             <option value="" disabled="" hidden="">Selecione uma opção</option>
-                            <option value="0">Domingo</option>
-                            <option value="1">Segunda-feira</option>
-                            <option value="2">Terça-feira</option>
-                            <option value="3">Quarta-feira</option>
-                            <option value="4">Quinta-feira</option>
-                            <option value="5">Sexta-feira</option>
-                            <option value="6">Sábado</option>
+                            
+                            {%for weekday in weekdays%}
+                            <option value="{{loop.index0}}" {{"selected" if filters.weekday== loop.index0 }}>{{weekday}}</option>
+                            {%endfor%}
+                            
                         </select>
                     </div>
                     <div class="input-block">
                         <label for="time">Hora</label>
-                        <input name="time" id="time" type="time" >
+                        <input name="time" id="time" type="time" value="{{filters.time}}">
                     </div>
                     <button type="submit">Filtrar</button>
                 </form>
             </div>
        </header>     
        <main>
-        
-            <article class="teacher-item">
-                <header>
-                    <img 
-                        src="https://avatars2.githubusercontent.com/u/2254731?s=460&amp;u=0ba16a79456c2f250e7579cb388fa18c5c2d7d65&amp;v=4" 
-                        alt="Diego Fernandes">
-                    <div>
-                        <strong>Diego Fernandes</strong>
-                        <span>Química</span>
-                    </div>
-                </header>
+
+            {% for proffy in proffys %}
+                <article class="teacher-item">
             
-                <p>Entusiasta das melhores tecnologias de química avançada.<br><br>Apaixonado por explodir coisas em laboratório e por mudar a vida das pessoas através de experiências. Mais de 200.000 pessoas já passaram por uma das minhas explosões.</p>
-            
-                <footer>
-                    <p>Preço/hora<strong>R$ 20,00</strong>
-                    </p>
-                    <button type="button">
-                        <img src="/images/icons/whatsapp.svg" alt="Whatsapp">Entrar em contato
-                    </button>
-                </footer>
-            </article>
-            <article class="teacher-item">
-                <header>
-                    <img 
-                        src="https://s3-alpha-sig.figma.com/img/80c7/71d3/eab44d63e1ad116eceddfb0c6a60ede3?Expires=1597622400&Signature=E5Zj3QobyrSOKiF~sF3tKfr00VciZWoXRoJdmKHwPd7B6jK3FkHz8g9dcdwB5ovf8dFIKOgywX2shAGlQYyGRDvXjkgYnaH7WcQwUI99myWKn6Q6YIRhKIDXVhtkMro~rNM4OSVk7H5jujhBy3SafZdHLsMq11div5Wjx2LMwzdQvpZOMoFN1OmLCxFA1YTBNtPYqIBC~IPX35tdJ9LezcrdAJmZzOR69n8wtCMc-zqKFPekfYQNzHDJvycx7d5UFDBshG27DSjjAAoM76Mih3UjeHdD9ihQrb7aPjnF5tgJFBqQKDyJy0AwNwitHkcLeXk3qD2sdetKfOyBxNLjnw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA
-                        " 
-                        alt="Mayk Brito">
-                    <div>
-                        <strong>Mayk Brito</strong>
-                        <span>Educação Fisica</span>
-                    </div>
-                </header>
-            
-                <p>Instrutor de Educação Física para iniciantes, minha missão de vida é levar saúde e contribuir para o crescimento de quem se interessar. <br><br>Comecei a minha jornada profissional em 2001, quando meu pai me deu dois alteres de 32kg com a seguinte condição: "Aprenda a fazer dinheiro com isso!" */</p>
-            
-                <footer>
-                    <p>Preço/hora<strong>R$ 40,00</strong>
-                    </p>
-                    <button type="button">
-                        <img src="/images/icons/whatsapp.svg" alt="Whatsapp">Entrar em contato
-                    </button>
-                </footer>
-            </article>
-            <article class="teacher-item">
-                <header>
-                    <img 
-                        src="https://s3-alpha-sig.figma.com/img/26d9/c8d7/fdb16bf5a7858eb8d294bd4ffc797173?Expires=1597622400&Signature=SW7wQwViqvBR9k6HynaDJY7QnhBACK-OpigV-rBefl7zHNUzQMEEHs0-L5YwsPeF40fePxnIlOf7V4db6-N9Z8wXqIZKoftVlUahghgECyjpkNGq-XGU927QmYD4F83eFOmLmQAh14v53kbbIHSTBMULtlKWuKKsGL9eR7A5HlwIPvTKpcbDd5hvXd4sSrwUUgbNHtBayhpO5P5k-E0h2w~yEOdRaMZjVXYHWd2-eBVxEUtbC3BaAAOu-HiX8LR4ArrLFTJXI~Yk9sqOLsIHGlUQVYQbpEpQ3JDnPvVKaABeI7YGUrJ69IXbXP5Cq8SFk9z7jTaV0ob5luJ8JMhmGg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                        alt="Thiago Luchtenberg">
-                    <div>
-                        <strong>Thiago Luchtenberg</strong>
-                        <span>Geografia</span>
-                    </div>
-                </header>
-            
-                <p>As vezes não sei nem onde eu tô, mas consigo me localizar facilmente em qualquer lugar. Tenho memória fotográfica e nunca fico perdido.<br><br> Eu ensino a galera como não se perder na vida, com lições geográficas simples pra você nunca mais precisar de mapa na sua bela vida</p>
-            
-                <footer>
-                    <p>Preço/hora<strong>R$ 35,00</strong>
-                    </p>
-                    <button type="button">
-                        <img src="/images/icons/whatsapp.svg" alt="Whatsapp">Entrar em contato
-                    </button>
-                </footer>
-            </article>
+                    <header>
+                        <img src="{{ proffy.avatar }}" alt="{{ proffy.name }}">
+                        <div>
+                            <strong>{{ proffy.name }}</strong>
+                            <span>{{ proffy.subject }}</span>
+                        </div>
+                    </header>
+
+                    <p>{{ proffy.bio }}</p>
+
+                    <footer>
+                        <p>Preço/hora<strong>{{ proffy.cost }}</strong></p>
+                    
+                        <a href="https://api.whatsapp.com/send?l=pt_BR&phone=55{{ proffy.whatsapp }} &text=Tenho interesse na sua aula de {{ proffy.subject }} {{ proffy.name }}" class="button" target="_blank">
+                            <img src="/images/icons/whatsapp.svg" alt="WhatsApp">
+                            Entrar em contato
+                        </a>
+                    </footer>
+
+                </article>
+            {%endfor%}
        </main>
     </div>
    
 </body>
 </html>
-
-
-
-
