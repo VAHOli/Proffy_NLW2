@@ -19,18 +19,18 @@
     <div id="container"> 
        <header class="page-header">
            <div class="top-bar-container">
-                <a href="/index.html">
+                <a href="/">
                 <img src="/images/icons/back.svg" alt="Voltar">
                 </a>
                 <img src="/images/logo.svg" alt="Proffy">
             </div>
             <div class="header-content">
-               <strong>Que incrível que você que dar aulas</strong>
+               <strong>Que incrível que você quer dar aulas</strong>
                <p>O primeiro passo é preencher esse formulário de inscrição</p>
             </div>
        </header>     
        <main>
-            <form action="" id="crate-class">
+            <form action="" id="create-class">
                 <fieldset>
                     <legend>Seus dados</legend>
                     <div class="input-block">
@@ -56,22 +56,15 @@
                         <label for="subject">Matéria dada</label>
                         <select name="subject" id="subject" required >
                             <option value="">Selecione uma opção</option>
-                            <option value="1">Artes</option>
-                            <option value="2">Biologia</option>
-                            <option value="3">Ciências</option>
-                            <option value="4">Educação física</option>
-                            <option value="5">Física</option>
-                            <option value="6">Geografia</option>
-                            <option value="7">História</option>
-                            <option value="8">Matemática</option>
-                            <option value="9">Português</option>
-                            <option value="10">Química</option>
+                            {%for subject in subjects%}
+                                <option value="{{loop.index}}" >{{subject}}</option>
+                            {%endfor%}
                         </select>
                     </div>
 
                     <div class="input-block">
                         <label for="cost">Custo da sua hora/aula <small>(em R$)</small></label>
-                        <input type="cost" id="cost" type="number">
+                        <input name="cost" type="cost" id="cost" type="number">
                     </div>
 
                 </fieldset>
@@ -84,13 +77,10 @@
                             <label for="weekday"> Dia da semana</label>
                             <select name="weekday[]" required >
                                 <option value="">Selecione uma opção</option>
-                                <option value="1">Segunda-feira</option>
-                                <option value="2">Terça-feira</option>
-                                <option value="3">Quarta-feira</option>
-                                <option value="4">Quinta-feira</option>
-                                <option value="5">Sexta-feira</option>
-                                <option value="6">Sábado</option>
-                                <option value="7">Domingo</option>
+                                
+                                {%for weekday in weekdays%}
+                                    <option value="{{loop.index0}}" >{{weekday}}</option>
+                                {%endfor%}
                             </select>
                         </div>
                         <div class="input-block">
@@ -109,7 +99,7 @@
                     <img src="/images/icons/warning.svg" alt="Aviso importante">
                     Importante! <br><br> Preencha todos os dados
                 </p>
-                <button type="submit" form="creat-class">Salvar cadastro</button>
+                <button type="submit" form="create-class">Salvar cadastro</button>
 
             </footer>
        </main>
